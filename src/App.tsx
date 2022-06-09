@@ -16,13 +16,29 @@ export default function App() {
     text: null,
   });
 
+  // Fetch API Data each time the Index from the user effect is Updated
   React.useEffect(() => {
-    fetch(`https://jsonplaceholder.typicode.com/posts/${index}`)
-      .then((res) => res.json())
-      .then((res) => {
-        setPost({ id: res.id, title: res.title, text: res.body });
-      });
+    fetchData();
   }, [index]);
+
+  // Fetch API Data
+  function fetchData () {
+    fetch(`https://jsonplaceholder.typicode.com/posts/${index}`)
+    .then((res) => res.json())
+    .then((res) => {
+      setPost({ id: res.id, title: res.title, text: res.body });
+    });
+  }
+
+  // Increment and Decrement the index based on a boolean and prevent going under zero
+  function updateIndex (dec: boolean) {
+    if (dec  == true && index != 1) {
+      setIndex(index - 1)
+    } 
+    if (dec == false) {
+      setIndex(index + 1)
+    } 
+  }
 
   return (
     <div className={styles.container}>
@@ -41,14 +57,14 @@ export default function App() {
         {/* Btn decrease */}
         <button
           className={styles['btn--decrease']}
-          onClick={() => setIndex(index - 1)}
+          onClick={() => updateIndex(true)}
         >
           Decrease
         </button>
         {/* Btn increase */}
         <button
           className={styles['btn--increase']}
-          onClick={() => setIndex(index + 1)}
+          onClick={() => updateIndex(false)}
         >
           Increase
         </button>
