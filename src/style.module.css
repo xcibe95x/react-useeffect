@@ -1,0 +1,61 @@
+/* GENERAL */
+* {
+  box-sizing: border-box;
+  font-family: sans-serif;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  background: #edf2f8;
+}
+
+h2 {
+  font-size: 18px;
+}
+
+/* CARD */
+.container {
+  height: 100vh;
+  margin-top: 100px;
+  max-width: 1170px;
+}
+
+.card-container {
+  border: 2px solid lightgrey;
+  margin: 0 auto;
+  padding: 16px;
+  width: 300px;
+}
+
+.card {
+  height: 100%;
+  width: 100%;
+}
+
+.card__text {
+  color: grey;
+  margin-top: 8px;
+}
+
+.card__actions {
+  display: flex;
+  gap: 8px;
+  justify-content: center;
+  margin: 0 auto;
+  padding: 16px;
+  width: 300px;
+}
+
+.card__actions button {
+  border: 1px solid grey;
+  border-radius: 5px;
+  padding: 8px;
+}
+
+.btn--decrease {
+  background: lightblue;
+}
+.btn--increase {
+  background: lightgreen;
+}
